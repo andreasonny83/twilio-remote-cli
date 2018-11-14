@@ -1,0 +1,32 @@
+{
+  "name": "twilio-remote-cli",
+  "version": "0.0.0",
+  "description": "CLI remote control for Twilio API",
+  "main": "index.js",
+  "bin": {
+    "twilio-remote": "bin/cli"
+  },
+  "scripts": {
+    "release": "np",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "Andrea Sonny <andreasonny83@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreasonny83/twilio-remote-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/andreasonny83/twilio-remote-cli.git/issues"
+  },
+  "homepage": "https://github.com/andreasonny83/twilio-remote-cli.git#readme",
+  "dependencies": {
+    "enquirer": "^2.0.7",
+    "nconf": "^0.10.0",
+    "twilio": "^3.23.2"
+  },
+  "devDependencies": {
+    "np": "^3.0.4"
+  }
+}
