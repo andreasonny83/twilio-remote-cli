@@ -8,7 +8,8 @@
   },
   "scripts": {
     "release": "np",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "keywords": [],
   "author": "Andrea Sonny <andreasonny83@gmail.com>",
@@ -27,6 +28,7 @@
     "twilio": "^3.23.2"
   },
   "devDependencies": {
+    "jest": "^23.6.0",
     "np": "^3.0.4"
   }
 }
