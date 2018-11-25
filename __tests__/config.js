@@ -1,5 +1,10 @@
 const nconf = require('nconf');
-const { prompt } = require('enquirer');
+const {
+  getConfig,
+  setup,
+  getLastUsedNumber,
+  updateLastUsedNumber
+} = require('../lib/config');
 
 const mockEnv = {
   TWILIO_ACCOUNT_SID: 'mockSid',
@@ -10,51 +15,100 @@ const mockEnv = {
 let shouldThrowError = false;
 
 nconf.file = jest.fn();
-nconf.save = jest.fn(cb => shouldThrowError ? cb('error') : cb());
-nconf.get = jest.fn((key) => {
-  return mockEnv[key]
+nconf.set = jest.fn((key, newVal) => mockEnv[key] = newVal);
+nconf.save = jest.fn(cb => (shouldThrowError ? cb('error') : cb()));
+nconf.get = jest.fn(key => {
+  return mockEnv[key];
 });
 
-describe('Config', () => {
+describe('getConfig', () => {
   it('should load the configuration from file', () => {
-    // Act
-    const config = require('../lib/config');
-
     // Assert
-    expect(config.config).toEqual([
+    expect(getConfig()).toEqual([
       mockEnv.TWILIO_ACCOUNT_SID,
       mockEnv.TWILIO_AUTH_TOKEN,
       mockEnv.TWILIO_PHONE_NUMBER
     ]);
   });
 
-  it('should save the configuration to a file ', async () => {
-    // Arrange
-    const { setup } = require('../lib/config');
-    shouldThrowError = false;
+  describe('setup', () => {
+    it('should save the configuration to a file ', async () => {
+      // Arrange
+      shouldThrowError = false;
 
-    // Act
-    await setup();
+      // Act
+      await setup();
 
-    // Assert
-    expect(nconf.save).toHaveBeenCalled();
+      // Assert
+      expect(nconf.save).toHaveBeenCalled();
+    });
+
+    it('should throw an error when unable to save the configuration settings', async () => {
+      // Arrange
+      shouldThrowError = true;
+      let errorHasBeenThrowned = false;
+
+      // Act
+      try {
+        await setup();
+      } catch (err) {
+        errorHasBeenThrowned = true;
+      }
+
+      // Assert
+      expect(errorHasBeenThrowned).toEqual(true);
+    });
   });
 
-  it('should throw an error ', async () => {
-    // Arrange
-    const { setup } = require('../lib/config');
-    shouldThrowError = true;
-    let errorHasBeenThrowned = false;
+  describe('getLastUsedNumber', () => {
+    it('should return undefined when nothing has been saved', () => {
+      // Act
+      const savedNumber = getLastUsedNumber();
 
-    // Act
-    try {
-      await setup();
-    }
-    catch(err) {
-      errorHasBeenThrowned = true;
-    }
+      // Assert
+      expect(savedNumber).toBeUndefined();
+    });
 
-    // Assert
-    expect(errorHasBeenThrowned).toEqual(true);
+    it('should return the last used number when present', () => {
+      // Arrange
+      const expectedNumber = 12345;
+      mockEnv['LAST_USED_NUMBER'] = expectedNumber;
+
+      // Act
+      const savedNumber = getLastUsedNumber();
+
+      // Assert
+      expect(savedNumber).toEqual(expectedNumber);
+    });
+  });
+
+  describe('updateLastUsedNumber', () => {
+    it('should store a specified number to the configuration file', async () => {
+      // Arrange
+      const newNumber = '0000';
+      shouldThrowError = false;
+
+      // Act
+      await updateLastUsedNumber(newNumber);
+
+      // Assert
+      expect(getLastUsedNumber()).toEqual(newNumber);
+    });
+
+    it('should throw an error when unable to save the configuration settings', async () => {
+      // Arrange
+      shouldThrowError = true;
+      let errorHasBeenThrowned = false;
+
+      // Act
+      try {
+        await updateLastUsedNumber(newNumber);
+      } catch (err) {
+        errorHasBeenThrowned = true;
+      }
+
+      // Assert
+      expect(errorHasBeenThrowned).toEqual(true);
+    });
   });
 });
