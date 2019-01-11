@@ -6,12 +6,11 @@ const updateNotifier = require('update-notifier');
 const pkg = require('../package.json');
 
 // Checks for available update and returns an instance
-updateNotifier({pkg}).notify();
+updateNotifier({ pkg }).notify();
 
-twilio
-  .then(() => {
-    process.exit(0);
-  })
+Promise.resolve()
+  .then(() => twilio)
+  .then(() => process.exit(0))
   .catch(err => {
     console.log(err);
     process.exit(1);
