@@ -2,6 +2,11 @@
 'use strict';
 
 const twilio = require('../lib');
+const updateNotifier = require('update-notifier');
+const pkg = require('../package.json');
+
+// Checks for available update and returns an instance
+updateNotifier({pkg}).notify();
 
 twilio
   .then(() => {
