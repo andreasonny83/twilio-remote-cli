@@ -11,9 +11,14 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "format": "prettier --write \"{lib,bin,__{tests,mocks}__}/**/*.js\"",
-    "postinstall": "gitmoji -i"
+    "commit": "gitmoji -c"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "twilio",
+    "twilio-api",
+    "node"
+  ],
   "author": "Andrea Sonny <andreasonny83@gmail.com>",
   "license": "MIT",
   "repository": {
