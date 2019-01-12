@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/twilio-remote-cli.svg)](https://www.npmjs.com/package/twilio-remote-cli)
 [![Known Vulnerabilities](https://snyk.io/test/github/andreasonny83/twilio-remote-cli/badge.svg?targetFile=package.json)](https://snyk.io/test/github/andreasonny83/twilio-remote-cli?targetFile=package.json)
 
-> A useful CLI for your Twilio API
+> A remote control for your Twilio API
 
 <img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/sms.gif" width="700">
 
