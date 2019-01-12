@@ -2,16 +2,16 @@
 'use strict';
 
 const twilio = require('../lib');
-const updateNotifier = require('update-notifier');
-const pkg = require('../package.json');
+const cli = require('../lib/cli');
 
-// Checks for available update and returns an instance
-updateNotifier({ pkg }).notify();
+(async () => {
+  cli.run();
 
-Promise.resolve()
-  .then(() => twilio)
-  .then(() => process.exit(0))
-  .catch(err => {
-    console.log(err);
+  try {
+    await twilio.run();
+  } catch (err) {
     process.exit(1);
-  });
+  }
+
+  process.exit(0);
+})();

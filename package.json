@@ -1,7 +1,7 @@
 {
   "name": "twilio-remote-cli",
   "version": "0.1.2",
-  "description": "CLI remote control for Twilio API",
+  "description": "A remote control for your Twilio API",
   "main": "index.js",
   "bin": {
     "twilio-remote": "bin/cli"
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "jest": "^23.6.0",
+    "meow": "^5.0.0",
     "np": "^3.0.4"
   }
 }
