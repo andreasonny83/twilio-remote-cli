@@ -6,6 +6,12 @@ const {
   updateLastUsedNumber
 } = require('../lib/config');
 
+const enquirer = require('enquirer');
+
+jest.mock('enquirer', () => ({
+  prompt: jest.fn(() => 'promptTest')
+}));
+
 const mockEnv = {
   TWILIO_ACCOUNT_SID: 'mockSid',
   TWILIO_AUTH_TOKEN: 'mockToken',
@@ -15,7 +21,7 @@ const mockEnv = {
 let shouldThrowError = false;
 
 nconf.file = jest.fn();
-nconf.set = jest.fn((key, newVal) => mockEnv[key] = newVal);
+nconf.set = jest.fn((key, newVal) => (mockEnv[key] = newVal));
 nconf.save = jest.fn(cb => (shouldThrowError ? cb('error') : cb()));
 nconf.get = jest.fn(key => {
   return mockEnv[key];
@@ -35,11 +41,18 @@ describe('getConfig', () => {
     it('should save the configuration to a file ', async () => {
       // Arrange
       shouldThrowError = false;
+      const testQuery = 'test';
 
       // Act
-      await setup();
+      try {
+        await setup(testQuery);
+      } catch (err) {
+        // Should never go here
+        expect(false).toEqual(true);
+      }
 
       // Assert
+      expect(enquirer.prompt).toHaveBeenCalledWith(testQuery);
       expect(nconf.save).toHaveBeenCalled();
     });
 

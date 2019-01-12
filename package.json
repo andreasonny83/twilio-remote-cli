@@ -9,7 +9,9 @@
   "scripts": {
     "release": "np",
     "test": "jest",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "format": "prettier --write \"{lib,bin,__{tests,mocks}__}/**/*.js\"",
+    "postinstall": "gitmoji -i"
   },
   "keywords": [],
   "author": "Andrea Sonny <andreasonny83@gmail.com>",
@@ -29,8 +31,10 @@
     "update-notifier": "^2.5.0"
   },
   "devDependencies": {
+    "gitmoji-cli": "^1.9.2",
     "jest": "^23.6.0",
     "meow": "^5.0.0",
-    "np": "^3.0.4"
+    "np": "^3.0.4",
+    "prettier": "^1.15.3"
   }
 }
