@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/andreasonny83/twilio-remote-cli.git#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "enquirer": "^2.0.7",
     "meow": "^5.0.0",
     "nconf": "^0.10.0",
