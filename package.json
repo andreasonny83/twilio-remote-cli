@@ -1,6 +1,6 @@
 {
   "name": "twilio-remote-cli",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A remote control for your Twilio API",
   "main": "index.js",
   "bin": {
