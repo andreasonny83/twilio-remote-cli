@@ -23,8 +23,8 @@ You will also need a Twilio account and phone number that can send SMS messages
     - [Install Globally](#install-globally)
     - [Run from npm without installing](#run-from-npm-without-installing)
     - [Install a specific version (Example: 0.0.1)](#install-a-specific-version-example-001)
-  - [Configuration](#configuration)
   - [Usage](#usage)
+  - [Configuration](#configuration)
     - [Sending SMS](#sending-sms)
     - [Making calls](#making-calls)
   - [License](#license)
@@ -51,21 +51,6 @@ npx twilio-remote-cli
 npm install -g twilio-remote-cli@0.0.1
 ```
 
-## Configuration
-
-<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/config.gif" width="700">
-
-Twilio Remote CLI make uses of the Twilio API by accessing you personal Twilio account.
-We need to configure the application with our Twilio credentials. Gather your Twilio Account Sid and Auth Token from the [Twilio console](https://www.twilio.com/console) along with a [Twilio phone number](https://www.twilio.com/console/phone-numbers/incoming) that can send SMS messages.
-
-Run the Twilio Remote CLI with
-
-```sh
-twilio-remote
-```
-
-Then select the `Setup Twilio Account` option and enter all the required information.
-
 ## Usage
 
 ```
@@ -86,6 +71,21 @@ Then select the `Setup Twilio Account` option and enter all the required informa
 ```
 
 Then just follow the instructions on your terminal.
+
+## Configuration
+
+<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/config.gif" width="700">
+
+Twilio Remote CLI make uses of the Twilio API by accessing you personal Twilio account.
+We need to configure the application with our Twilio credentials. Gather your Twilio Account Sid and Auth Token from the [Twilio console](https://www.twilio.com/console) along with a [Twilio phone number](https://www.twilio.com/console/phone-numbers/incoming) that can send SMS messages.
+
+Run the Twilio Remote CLI with
+
+```sh
+twilio-remote
+```
+
+Then select the `Setup Twilio Account` option and enter all the required information.
 
 ### Sending SMS
 
