@@ -1,15 +1,61 @@
 #!/usr/bin/env node
 'use strict';
 
+const meow = require('meow');
+const chalk = require('chalk');
+const updateNotifier = require('update-notifier');
+const pkg = require('../package.json');
 const twilio = require('../lib');
-const cli = require('../lib/cli');
+
+const cli = meow(
+  `
+  version ${pkg.version}
+
+  Usage
+    $ twilio-remote
+
+  Options
+    --call,    -c   Perform a call against a given number
+    --sms,     -s   Deliver an sms to a given number (to be used in combination of --message)
+    --message, -m   The message to be delivered to the given number (requires the --sms flag)
+
+  Example
+    $ twilio-remote
+    $ twilio-remote +1234567890 -c
+    $ twilio-remote +1234567890 -s -m Allo!
+`,
+  {
+    booleanDefault: undefined,
+    flags: {
+      version: {
+        alias: 'v'
+      },
+      help: {
+        alias: 'h'
+      },
+      call: {
+        type: 'boolean',
+        alias: 'c'
+      },
+      sms: {
+        type: 'boolean',
+        alias: 's'
+      },
+      message: {
+        type: 'string',
+        alias: 'm'
+      }
+    }
+  }
+);
+
+updateNotifier({ pkg }).notify();
 
 (async () => {
-  cli.run();
-
   try {
-    await twilio.run();
-  } catch (err) {
+    await twilio.run({ input: cli.input[0], ...cli.flags });
+  } catch (error) {
+    console.log(chalk.red(error.message || error));
     process.exit(1);
   }
 

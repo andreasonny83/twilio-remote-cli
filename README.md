@@ -11,15 +11,18 @@
 ## Prerequisites
 
 The CLI has dependencies that require Node 6 or higher, together with NPM 3 or higher.
-You will also need a Twilio account and phone number that can send SMS messages (you can [sign up for a Twilio account for free here](https://www.twilio.com/try-twilio)).
+
+You will also need a Twilio account and phone number that can send SMS messages
+(you can [sign up for a Twilio account for free here](https://www.twilio.com/try-twilio)).
 
 ## Table of Contents
 - [Twilio Remote CLI](#twilio-remote-cli)
   - [Prerequisites](#prerequisites)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
-    - [Install Globablly](#install-globablly)
-    - [Install Specific Version (Example: 0.0.1)](#install-specific-version-example-001)
+    - [Install Globally](#install-globally)
+    - [Run from npm without installing](#run-from-npm-without-installing)
+    - [Install a specific version (Example: 0.0.1)](#install-a-specific-version-example-001)
   - [Configuration](#configuration)
   - [Usage](#usage)
     - [Sending SMS](#sending-sms)
@@ -30,13 +33,19 @@ You will also need a Twilio account and phone number that can send SMS messages 
 
 **BEFORE YOU INSTALL:** please read the [prerequisites](#prerequisites)
 
-### Install Globablly
+### Install Globally
 
 ```sh
 npm install -g twilio-remote-cli
 ```
 
-### Install Specific Version (Example: 0.0.1)
+### Run from npm without installing
+
+```sh
+npx twilio-remote-cli
+```
+
+### Install a specific version (Example: 0.0.1)
 
 ```sh
 npm install -g twilio-remote-cli@0.0.1
@@ -59,8 +68,21 @@ Then select the `Setup Twilio Account` option and enter all the required informa
 
 ## Usage
 
-```sh
-twilio-remote
+```
+  $ twilio-remote --help
+
+  Usage
+    $ twilio-remote
+
+  Options
+    --call,    -c   Perform a call against a given number
+    --sms,     -s   Deliver an sms to a given number (to be used in combination of --message)
+    --message, -m   The message to be delivered to the given number (requires the --sms flag)
+
+  Example
+    $ twilio-remote
+    $ twilio-remote +1234567890 -c
+    $ twilio-remote +1234567890 -s -m Allo!
 ```
 
 Then just follow the instructions on your terminal.
