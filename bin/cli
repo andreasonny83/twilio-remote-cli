@@ -16,13 +16,15 @@ const cli = meow(
 
   Options
     --call,    -c   Perform a call against a given number
+    --digits   -d   Send some digits to the number when the call is answered
     --sms,     -s   Deliver an sms to a given number (to be used in combination of --message)
     --message, -m   The message to be delivered to the given number (requires the --sms flag)
 
   Example
     $ twilio-remote
-    $ twilio-remote +1234567890 -c
-    $ twilio-remote +1234567890 -s -m Allo!
+    $ twilio-remote -c +1234567890
+    $ twilio-remote -c +1234567890 -d 123
+    $ twilio-remote -s +1234567890 -m Allo!
 `,
   {
     booleanDefault: undefined,
@@ -36,6 +38,10 @@ const cli = meow(
       call: {
         type: 'boolean',
         alias: 'c'
+      },
+      digits: {
+        type: 'string',
+        alias: 'd'
       },
       sms: {
         type: 'boolean',
