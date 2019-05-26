@@ -24,6 +24,11 @@ You will also need a Twilio account and phone number that can send SMS messages
     - [Run from npm without installing](#run-from-npm-without-installing)
     - [Install a specific version (Example: 0.0.1)](#install-a-specific-version-example-001)
   - [Usage](#usage)
+    - [Options](#options)
+        - [`--call`, `-c`](#call--c)
+        - [`--digits`, `-d`](#digits--d)
+        - [`--sms`, `-s`](#sms--s)
+        - [`--message`, `-m`](#message--m)
   - [Configuration](#configuration)
     - [Sending SMS](#sending-sms)
     - [Making calls](#making-calls)
@@ -61,16 +66,60 @@ npm install -g twilio-remote-cli@0.0.1
 
   Options
     --call,    -c   Perform a call against a given number
+    --digits   -d   Send some digits to the number when the call is answered
     --sms,     -s   Deliver an sms to a given number (to be used in combination of --message)
     --message, -m   The message to be delivered to the given number (requires the --sms flag)
 
   Example
     $ twilio-remote
-    $ twilio-remote +1234567890 -c
-    $ twilio-remote +1234567890 -s -m Allo!
+    $ twilio-remote -c +1234567890
+    $ twilio-remote -c +1234567890 -d 123
+    $ twilio-remote -s +1234567890 -m Allo!
 ```
 
 Then just follow the instructions on your terminal.
+
+### Options
+
+##### `--call`, `-c`
+
+Perform a call against a given number
+
+```
+$ twilio-remote -c +1234567890
+```
+
+##### `--digits`, `-d`
+
+**NOTE** This flag must be used in combination with `--call`
+
+Send some DTMF (Dual-Tone Multi-Frequency Tones) tones to the number when the call is answered.
+Have a look at [Twilio Studio Flow](https://www.twilio.com/console/studio/flows/).
+Learn more how to use the [Gather Input On Call Twilio Widget from here](https://www.twilio.com/docs/studio/widget-library#gather-input-on-call)
+
+If a certain number requires to enter a code when the call is answered, you can use `twilio-remote` in this way:
+
+```
+$ twilio-remote -c +1234567890 -d 123
+```
+
+##### `--sms`, `-s`
+
+Deliver an sms to a given number
+**NOTE** This flag must be used in combination with `--message`
+
+```
+$ twilio-remote -s +1234567890 -m Allo!
+```
+
+##### `--message`, `-m`
+
+The message to be delivered to the given number
+**NOTE** This flag must be used in combination with `--sms`
+
+```
+$ twilio-remote -s +1234567890 -m Allo!
+```
 
 ## Configuration
 
