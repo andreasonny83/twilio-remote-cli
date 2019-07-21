@@ -8,6 +8,7 @@
   },
   "scripts": {
     "release": "np",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "format": "prettier --write \"{lib,bin,__{tests,mocks}__}/**/*.js\""
@@ -38,6 +39,7 @@
     "update-notifier": "^3.0.0"
   },
   "devDependencies": {
+    "conventional-changelog-cli": "^2.0.21",
     "jest": "^24.8.0",
     "np": "^5.0.2",
     "prettier": "^1.17.1"
