@@ -1,3 +1,12 @@
+## [0.5.2](https://github.com/andreasonny83/twilio-remote-cli/compare/v0.5.1...v0.5.2) (2019-07-21)
+
+
+### Performance Improvements
+
+* **dependencies:** Bump dependencies ([4a4ee13](https://github.com/andreasonny83/twilio-remote-cli/commit/4a4ee13))
+
+
+
 ## [0.5.1](https://github.com/andreasonny83/twilio-remote-cli/compare/v0.5.0...v0.5.1) (2019-07-21)
 
 
