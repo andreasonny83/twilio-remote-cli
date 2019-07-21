@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/twilio-remote-cli.svg)](https://badge.fury.io/js/twilio-remote-cli)
 [![npm](https://img.shields.io/npm/dt/twilio-remote-cli.svg)](https://www.npmjs.com/package/twilio-remote-cli)
 [![Known Vulnerabilities](https://snyk.io/test/github/andreasonny83/twilio-remote-cli/badge.svg?targetFile=package.json)](https://snyk.io/test/github/andreasonny83/twilio-remote-cli?targetFile=package.json)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 > A remote control for your Twilio API
 
@@ -16,23 +17,23 @@ You will also need a Twilio account and phone number that can send SMS messages
 (you can [sign up for a Twilio account for free here](https://www.twilio.com/try-twilio)).
 
 ## Table of Contents
-- [Twilio Remote CLI](#twilio-remote-cli)
-  - [Prerequisites](#prerequisites)
-  - [Table of Contents](#table-of-contents)
-  - [Installation](#installation)
-    - [Install Globally](#install-globally)
-    - [Run from npm without installing](#run-from-npm-without-installing)
-    - [Install a specific version (Example: 0.0.1)](#install-a-specific-version-example-001)
-  - [Usage](#usage)
-    - [Options](#options)
+- [Twilio Remote CLI](#Twilio-Remote-CLI)
+  - [Prerequisites](#Prerequisites)
+  - [Table of Contents](#Table-of-Contents)
+  - [Installation](#Installation)
+    - [Install Globally](#Install-Globally)
+    - [Run from npm without installing](#Run-from-npm-without-installing)
+    - [Install a specific version (Example: 0.0.1)](#Install-a-specific-version-Example-001)
+  - [Usage](#Usage)
+    - [Options](#Options)
         - [`--call`, `-c`](#call--c)
         - [`--digits`, `-d`](#digits--d)
         - [`--sms`, `-s`](#sms--s)
         - [`--message`, `-m`](#message--m)
-  - [Configuration](#configuration)
-    - [Sending SMS](#sending-sms)
-    - [Making calls](#making-calls)
-  - [License](#license)
+  - [Configuration](#Configuration)
+    - [Sending SMS](#Sending-SMS)
+    - [Making calls](#Making-calls)
+  - [License](#License)
 
 ## Installation
 
