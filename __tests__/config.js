@@ -3,27 +3,27 @@ const {
   getConfig,
   setup,
   getLastUsedNumber,
-  updateLastUsedNumber
+  updateLastUsedNumber,
 } = require('../lib/config');
 
 const enquirer = require('enquirer');
 
 jest.mock('enquirer', () => ({
-  prompt: jest.fn(() => 'promptTest')
+  prompt: jest.fn(() => 'promptTest'),
 }));
 
 const mockEnv = {
   TWILIO_ACCOUNT_SID: 'mockSid',
   TWILIO_AUTH_TOKEN: 'mockToken',
-  TWILIO_PHONE_NUMBER: 'mockNumber'
+  TWILIO_PHONE_NUMBER: 'mockNumber',
 };
 
 let shouldThrowError = false;
 
 nconf.file = jest.fn();
 nconf.set = jest.fn((key, newVal) => (mockEnv[key] = newVal));
-nconf.save = jest.fn(cb => (shouldThrowError ? cb('error') : cb()));
-nconf.get = jest.fn(key => {
+nconf.save = jest.fn((cb) => (shouldThrowError ? cb('error') : cb()));
+nconf.get = jest.fn((key) => {
   return mockEnv[key];
 });
 
@@ -33,7 +33,7 @@ describe('getConfig', () => {
     expect(getConfig()).toEqual([
       mockEnv.TWILIO_ACCOUNT_SID,
       mockEnv.TWILIO_AUTH_TOKEN,
-      mockEnv.TWILIO_PHONE_NUMBER
+      mockEnv.TWILIO_PHONE_NUMBER,
     ]);
   });
 
@@ -111,17 +111,17 @@ describe('getConfig', () => {
     it('should throw an error when unable to save the configuration settings', async () => {
       // Arrange
       shouldThrowError = true;
-      let errorHasBeenThrowned = false;
+      let errorHasBeenThrown = false;
 
       // Act
       try {
         await updateLastUsedNumber(newNumber);
       } catch (err) {
-        errorHasBeenThrowned = true;
+        errorHasBeenThrown = true;
       }
 
       // Assert
-      expect(errorHasBeenThrowned).toEqual(true);
+      expect(errorHasBeenThrown).toEqual(true);
     });
   });
 });

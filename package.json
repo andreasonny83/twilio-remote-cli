@@ -30,18 +30,18 @@
   },
   "homepage": "https://github.com/andreasonny83/twilio-remote-cli.git#readme",
   "dependencies": {
-    "chalk": "^2.4.2",
-    "enquirer": "^2.3.1",
-    "meow": "^5.0.0",
+    "chalk": "^4.1.0",
+    "enquirer": "^2.3.6",
+    "meow": "^7.1.1",
     "nconf": "^0.10.0",
-    "ora": "^3.4.0",
-    "twilio": "^3.33.1",
-    "update-notifier": "^3.0.1"
+    "ora": "^5.1.0",
+    "twilio": "^3.49.4",
+    "update-notifier": "^5.0.0"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^2.0.21",
-    "jest": "^24.8.0",
-    "np": "^5.0.3",
-    "prettier": "^1.18.2"
+    "conventional-changelog-cli": "^2.1.0",
+    "jest": "^26.4.2",
+    "np": "^6.5.0",
+    "prettier": "^2.1.2"
   }
 }
