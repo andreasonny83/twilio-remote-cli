@@ -7,7 +7,7 @@
 
 > A remote control for your Twilio API
 
-<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/sms.gif" width="700">
+<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/main/img/sms.gif" width="700">
 
 ## Prerequisites
 
@@ -17,23 +17,23 @@ You will also need a Twilio account and phone number that can send SMS messages
 (you can [sign up for a Twilio account for free here](https://www.twilio.com/try-twilio)).
 
 ## Table of Contents
-- [Twilio Remote CLI](#Twilio-Remote-CLI)
-  - [Prerequisites](#Prerequisites)
-  - [Table of Contents](#Table-of-Contents)
-  - [Installation](#Installation)
-    - [Install Globally](#Install-Globally)
-    - [Run from npm without installing](#Run-from-npm-without-installing)
-    - [Install a specific version (Example: 0.0.1)](#Install-a-specific-version-Example-001)
-  - [Usage](#Usage)
-    - [Options](#Options)
-        - [`--call`, `-c`](#call--c)
-        - [`--digits`, `-d`](#digits--d)
-        - [`--sms`, `-s`](#sms--s)
-        - [`--message`, `-m`](#message--m)
-  - [Configuration](#Configuration)
-    - [Sending SMS](#Sending-SMS)
-    - [Making calls](#Making-calls)
-  - [License](#License)
+- [Twilio Remote CLI](#twilio-remote-cli)
+  - [Prerequisites](#prerequisites)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+    - [Install Globally](#install-globally)
+    - [Run from npm without installing](#run-from-npm-without-installing)
+    - [Install a specific version (Example: 0.0.1)](#install-a-specific-version-example-001)
+  - [Usage](#usage)
+    - [Options](#options)
+        - [`--call`, `-c`](#--call--c)
+        - [`--digits`, `-d`](#--digits--d)
+        - [`--sms`, `-s`](#--sms--s)
+        - [`--message`, `-m`](#--message--m)
+  - [Configuration](#configuration)
+    - [Sending SMS](#sending-sms)
+    - [Making calls](#making-calls)
+  - [License](#license)
 
 ## Installation
 
@@ -124,7 +124,7 @@ $ twilio-remote -s +1234567890 -m Allo!
 
 ## Configuration
 
-<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/config.gif" width="700">
+<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/main/img/config.gif" width="700">
 
 Twilio Remote CLI make uses of the Twilio API by accessing you personal Twilio account.
 We need to configure the application with our Twilio credentials. Gather your Twilio Account Sid and Auth Token from the [Twilio console](https://www.twilio.com/console) along with a [Twilio phone number](https://www.twilio.com/console/phone-numbers/incoming) that can send SMS messages.
@@ -139,11 +139,11 @@ Then select the `Setup Twilio Account` option and enter all the required informa
 
 ### Sending SMS
 
-<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/sms.gif" width="700">
+<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/main/img/sms.gif" width="700">
 
 ### Making calls
 
-<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/master/img/voice.gif" width="700">
+<img src="https://raw.githubusercontent.com/andreasonny83/twilio-remote-cli/main/img/voice.gif" width="700">
 
 ## License
 
